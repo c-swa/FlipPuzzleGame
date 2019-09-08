@@ -51,7 +51,18 @@ namespace BlackAndWhite
                     for (int col = 0; col < 5; col++)
                     {
                         gameboard.Flip(row, col);
-                        temporaryBoards.Add(gameboard);
+                        foreach(GameBoard board in CompletedGameBoards)
+                        {
+                            if (gameboard.Equals(board))
+                            {
+                                Console.WriteLine("Two Iterative Boards Matched.");
+                            }
+                            else
+                            {
+                                temporaryBoards.Add(gameboard);
+                            }
+                        }
+                        
                     }
                 }
                 CompletedGameBoards.Add(gameboard);

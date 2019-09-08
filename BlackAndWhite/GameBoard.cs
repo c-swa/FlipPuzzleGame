@@ -8,7 +8,7 @@ namespace BlackAndWhite
         private GamePiece[,] gameBoard = new GamePiece[5, 5];
 
         /// <summary>
-        /// Initialize game board
+        /// Initialize random game board
         /// </summary>
         public GameBoard()
         {
@@ -38,12 +38,28 @@ namespace BlackAndWhite
             }
         }
 
-        /// <summary>
-        /// Randomizes board
-        /// </summary>
-        public void RandomizeBoard()
+        public bool Equals(GameBoard board)
         {
+            for (int row = 0; row < 5; row++)
+            {
+                for (int col = 0; col < 5; col++)
+                {
+                    if (this.GetGamePiece(row, col).IsBlack != board.GetGamePiece(row, col).IsBlack)
+                    {
+                        return false;
+                    }
+                }
+            }
 
+            return true;
+        }
+
+        public GamePiece GetGamePiece(int row, int col)
+        {
+            if ((row < 5 && row >= 0) || (col >= 0 && col < 5))
+                return gameBoard[row, col];
+            else
+                throw new System.Exception("Row and Column to get GamePiece out of bounds");
         }
 
         /// <summary>
