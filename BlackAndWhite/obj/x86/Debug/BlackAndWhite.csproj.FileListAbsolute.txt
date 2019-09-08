@@ -1,0 +1,6 @@
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/bin/Debug/BlackAndWhite.exe
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/bin/Debug/BlackAndWhite.pdb
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/obj/x86/Debug/BlackAndWhite.csprojAssemblyReference.cache
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/obj/x86/Debug/BlackAndWhite.csproj.CoreCompileInputs.cache
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/obj/x86/Debug/BlackAndWhite.exe
+/Users/christopheraramswayne/Documents/UMKC/Computer Science/461-AI/Projects/blackAndWhite/BlackAndWhite/BlackAndWhite/obj/x86/Debug/BlackAndWhite.pdb
