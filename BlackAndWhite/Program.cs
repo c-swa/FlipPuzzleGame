@@ -12,6 +12,7 @@ namespace BlackAndWhite
             gameBoard.Flip(0, 0);
             Console.Write(gameBoard);
 
+            MainMenu main = new MainMenu();
 
 
         }
