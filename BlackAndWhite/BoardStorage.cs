@@ -20,34 +20,78 @@ namespace BlackAndWhite
         private GameBoard whiteGoalState = new GameBoard(true);
         private GameBoard blackGoalState = new GameBoard(false);
 
-        private List<GameBoard> CompletedBoardList = new List<GameBoard>();
+        private List<GameBoard> CompletedGameBoards = new List<GameBoard>();
+        private List<GameBoard> IncompletedGameBoards = new List<GameBoard>();
 
+
+        /// <summary>
+        /// Initializes the BoardStorage object
+        /// </summary>
         public BoardStorage()
         {
-            
+            InsertIncompletedBoard(whiteGoalState);
+            InsertIncompletedBoard(blackGoalState);
         }
 
 
+        /// <summary>
+        /// Finds the children of the boards and then adds them to a temporary
+        /// List while moving through the IncompletedGameBoards List.
+        ///
+        /// Once it finishes with the Incomplete List- current elements are moved
+        /// out into the CompletedGameBoards, and the children in temp are placed
+        /// into Incomplete.
+        /// </summary>
+        public void IterateIncompleteBoards()
+        {
+            List<GameBoard> temporaryBoards = new List<GameBoard>();
+            foreach (GameBoard gameboard in IncompletedGameBoards)
+            {
+                for (int row = 0; row < 5; row++) {
+                    for (int col = 0; col < 5; col++)
+                    {
+                        gameboard.Flip(row, col);
+                        temporaryBoards.Add(gameboard);
+                    }
+                }
+                CompletedGameBoards.Add(gameboard);
+            }
+            IncompletedGameBoards.Clear();
 
+            foreach(GameBoard gameBoard in temporaryBoards)
+            {
+                IncompletedGameBoards.Add(gameBoard);
+            }
+            temporaryBoards.Clear();
+        }
 
         /// <summary>
-        /// Inserts nextBoard into CompletedBoardList
+        /// Inserts nextBoard into CompletedGameBoards
         /// </summary>
         /// <param name="nextBoard"></param>
-        public void insertCompletedBoard(GameBoard nextBoard)
+        public void InsertIncompletedBoard(GameBoard nextBoard)
         {
-            CompletedBoardList.Add(nextBoard);
+            IncompletedGameBoards.Add(nextBoard);
+        }
+
+        /// <summary>
+        /// Inserts nextBoard into CompletedGameBoards
+        /// </summary>
+        /// <param name="nextBoard"></param>
+        public void InsertCompletedBoard(GameBoard nextBoard)
+        {
+            CompletedGameBoards.Add(nextBoard);
         }
 
 
         /// <summary>
-        /// Returns a string of the list as is stored.
+        /// Returns a string of the list of completed boards as is stored.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            foreach (GameBoard boards in CompletedBoardList)
+            foreach (GameBoard boards in CompletedGameBoards)
             {
                 builder.AppendLine(boards.ToString());
             }
@@ -57,7 +101,7 @@ namespace BlackAndWhite
 
 
         /// <summary>
-        /// Writes the entire list of boards into to the file path specified.
+        /// Writes the entire list of completed boards into to the file path specified.
         /// </summary>
         /// <param name="filePath"></param>
         public void WriteToFile(string filePath)
