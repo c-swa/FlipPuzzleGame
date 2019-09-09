@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+
 namespace BlackAndWhite
 {
     public class MainMenu
@@ -24,15 +26,22 @@ namespace BlackAndWhite
         /// Interacts with the User in controlling the game.
         /// </summary>
         /// <returns>Returns the integer of the User's input.</returns>
-        public int gameOptions()
+        public void gameOptions()
         {
-            Console.WriteLine("Please choose the disk you wish to flip: ");
-            int input = Console.Read();
-            if (true)
+            ConsoleKeyInfo cki;
+
+            do
             {
-                //
-            }
-            return input;
+                Console.WriteLine("Would you like to: \n(f)lip a piece \n(s)olve the board \n(q)uit");
+
+                while (Console.KeyAvailable == false)
+                    Thread.Sleep(200); //Loops every .2 seconds until an input is entered.
+
+                cki = Console.ReadKey(true);
+
+
+
+            } while (cki.Key != ConsoleKey.Q);
         }
     }
 }

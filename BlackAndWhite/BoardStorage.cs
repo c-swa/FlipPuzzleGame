@@ -34,6 +34,13 @@ namespace BlackAndWhite
         }
 
 
+        public void IterateGameBoards()
+        {
+
+        }
+
+
+
         /// <summary>
         /// Finds the children of the boards and then adds them to a temporary
         /// List while moving through the IncompletedGameBoards List.

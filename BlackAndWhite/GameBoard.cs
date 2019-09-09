@@ -107,7 +107,7 @@ namespace BlackAndWhite
         {
 
             //Variable 'output' will automatically be disposed of when out of scope of the 'using' clause.
-            using (StreamWriter output = new StreamWriter(filePath))
+            using (StreamWriter output = new StreamWriter(filePath, append: true))
             {
                 output.Write(ToString());
             }

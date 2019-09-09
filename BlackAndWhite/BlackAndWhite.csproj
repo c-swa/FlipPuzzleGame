@@ -38,6 +38,7 @@
     <Compile Include="GameBoard.cs" />
     <Compile Include="BoardStorage.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="GameState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
